@@ -9,8 +9,9 @@ import RubikLight from '../assets/fonts/Rubik-Light.ttf'
 import RubikMedium from '../assets/fonts/Rubik-Medium.ttf'
 import RubikRegular from '../assets/fonts/Rubik-Regular.ttf'
 import RubikSemiBold from '../assets/fonts/Rubik-SemiBold.ttf'
+import GlobalProvider from '@/lib/global-provider'
 
-export default function RootLayout() {
+const RootLayout = () => {
   const [fontsLoaded] = useFonts({
     'Rubik-Bold': RubikBold,
     'Rubik-ExtraBold': RubikExtraBold,
@@ -26,5 +27,11 @@ export default function RootLayout() {
 
   if (!fontsLoaded) return null
 
-  return <Stack screenOptions={{ headerShown: false }} />
+  return (
+    <GlobalProvider>
+      <Stack screenOptions={{ headerShown: false }} />
+    </GlobalProvider>
+  )
 }
+
+export default RootLayout
