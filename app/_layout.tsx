@@ -3,14 +3,21 @@ import './global.css'
 import { useFonts } from 'expo-font'
 import { useEffect } from 'react'
 
+import RubikBold from '../assets/fonts/Rubik-Bold.ttf'
+import RubikExtraBold from '../assets/fonts/Rubik-ExtraBold.ttf'
+import RubikLight from '../assets/fonts/Rubik-Light.ttf'
+import RubikMedium from '../assets/fonts/Rubik-Medium.ttf'
+import RubikRegular from '../assets/fonts/Rubik-Regular.ttf'
+import RubikSemiBold from '../assets/fonts/Rubik-SemiBold.ttf'
+
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    "Rubik-Bold": require('../assets/fonts/Rubik-Bold.ttf'),
-    "Rubik-ExtraBold": require('../assets/fonts/Rubik-ExtraBold.ttf'),
-    "Rubik-Light": require('../assets/fonts/Rubik-Light.ttf'),
-    "Rubik-Medium": require('../assets/fonts/Rubik-Medium.ttf'),
-    "Rubik-Regular": require('../assets/fonts/Rubik-Regular.ttf'),
-    "Rubik-Rubik-SemiBold": require('../assets/fonts/Rubik-SemiBold.ttf'),
+    'Rubik-Bold': RubikBold,
+    'Rubik-ExtraBold': RubikExtraBold,
+    'Rubik-Light': RubikLight,
+    'Rubik-Medium': RubikMedium,
+    'Rubik-Regular': RubikRegular,
+    'Rubik-SemiBold': RubikSemiBold,
   })
 
   useEffect(() => {
@@ -19,5 +26,5 @@ export default function RootLayout() {
 
   if (!fontsLoaded) return null
 
-  return <Stack />
+  return <Stack screenOptions={{ headerShown: false }} />
 }
