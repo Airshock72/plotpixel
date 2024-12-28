@@ -58,6 +58,12 @@
         "projectId": "82e050df-11a3-4dc3-8f52-4af45159fa7b"
       }
     },
-    "owner": "airshock"
+    "owner": "airshock",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/82e050df-11a3-4dc3-8f52-4af45159fa7b"
+    }
   }
 }
