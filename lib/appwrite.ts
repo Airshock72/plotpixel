@@ -110,3 +110,16 @@ export const getProperties = async ({ filter, query, limit }: { filter: string; 
     return []
   }
 }
+
+export const getPropertyById = async ({ id }: { id: string }) => {
+  try {
+    return await databases.getDocument(
+      config.databaseId!,
+      config.propertiesCollectionId!,
+      id
+    )
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
