@@ -6,10 +6,12 @@ import { categories } from '@/constants/data'
 const Filters = () => {
   const params = useLocalSearchParams<{filter?: string}>()
   const [selectedCategory, setSelectedCategory] = useState(params.filter || 'All')
+
   const handleCategoryPress = (category: string) => {
     if (selectedCategory === category) {
-      setSelectedCategory('All')
-      router.setParams({ filter: 'All' })
+      setSelectedCategory('')
+      router.setParams({ filter: '' })
+      return
     }
     setSelectedCategory(category)
     router.setParams({ filter: category })
@@ -28,7 +30,11 @@ const Filters = () => {
             ? 'bg-primary-300'
             : 'bg-primary-100 border border-primary-200'}`}
         >
-          <Text className={`text-sm ${selectedCategory === item.category ? 'text-white font-rubik-bold mt-0.5' : 'text-black-300 font-rubik'}`}>{item.title}</Text>
+          <Text className={`text-sm ${selectedCategory === item.category
+            ? 'text-white font-rubik-bold mt-0.5'
+            : 'text-black-300 font-rubik'}`}>
+            {item.title}
+          </Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
